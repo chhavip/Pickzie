@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Pickzie</string>
+    <string name="profile_people">People</string>
+    <string name="profile_places">Places</string>
+    <string name="profile_pictures">Pictures</string>
+    <string name="profile_review">Review</string>
+
 </resources>
