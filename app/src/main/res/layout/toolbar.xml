@@ -7,8 +7,7 @@
     android:background="@color/colorPrimaryDark"
     android:id="@+id/toolbar"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
-    android:fadingEdgeLength="10dp"
-    >
+    android:fadingEdgeLength="10dp" >
 
     <TextView
         android:layout_width="wrap_content"

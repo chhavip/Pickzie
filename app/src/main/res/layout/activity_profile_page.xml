@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.chhavi.pickzie.ProfilePage">
+    android:fitsSystemWindows="true">
 
-    <LinearLayout
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:layout_scrollFlags="scroll">
+
+            <include layout="@layout/toolbar" />
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -32,6 +37,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="22dp"
                     android:id="@+id/imageView_profilePage_DP"/>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -75,90 +81,99 @@
 
             </FrameLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@color/colorAccent" >
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/imageView_profilePage_people"
-                    android:contentDescription="@string/profile_people"
-                    android:src="@drawable/people"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/imageView_profilePage_place"
-                    android:contentDescription="@string/profile_places"
-                    android:src="@drawable/place"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/imageView_profilePage_pictures"
-                    android:contentDescription="@string/profile_pictures"
-                    android:src="@drawable/picture"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/imageView_profilePage_review"
-                    android:contentDescription="@string/profile_review"
-                    android:src="@drawable/review"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"/>
-
-
-            </LinearLayout>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="5">
-
-            </FrameLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimaryDark"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:paddingRight="10dp"
-                android:paddingLeft="10dp">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/home"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"/>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/plus"
-                    android:layout_centerHorizontal="true" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/profile"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"/>
-
-            </RelativeLayout>
-
         </LinearLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/colorAccent" >
+
+            <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:id="@+id/imageView_profilePage_people"-->
+            <!--android:contentDescription="@string/profile_people"-->
+            <!--android:src="@drawable/people"-->
+            <!--android:paddingTop="4dp"-->
+            <!--android:paddingBottom="4dp"/>-->
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/imageView_profilePage_place"
+                android:src="@drawable/place"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:clickable="true"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/imageView_profilePage_pictures"
+                android:src="@drawable/picture"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:clickable="true"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/imageView_profilePage_review"
+                android:src="@drawable/review"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:clickable="true"/>
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/framelayout_profile_page" />
+
     </LinearLayout>
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_gravity="bottom">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/home"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/plus"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/profile"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,8 +1,19 @@
 <resources>
     <string name="app_name">Pickzie</string>
+
     <string name="profile_people">People</string>
     <string name="profile_places">Places</string>
     <string name="profile_pictures">Pictures</string>
     <string name="profile_review">Review</string>
+
+    <string name="settings">Settings</string>
+    <string name="offerNnotifications">Offers and Notifications</string>
+    <string name="search">Search</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="fb_app_id">172272276479044</string>
+
+    <string name="loginPage">&#8226; Book a Saloon\n\n&#8226; Take a Photo\n\n&#8226; Write Your Review\n\n&#8226; Rate a Saloon\n\n</string>
 
 </resources>
