@@ -1,0 +1,13 @@
+<android.support.percent.PercentFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.chhavi.pickzie.Fragment.ShowImages">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager_showImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v4.view.ViewPager>
+
+</android.support.percent.PercentFrameLayout>

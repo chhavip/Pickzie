@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardView="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclerView_card_places"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:elevation="2dp"
+        />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cardView_places"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        cardView:cardUseCompatPadding="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:elevation="3dp"
+        android:focusable="true"
+        android:clickable="true" >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="190dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/cardPlacesBG"
+                android:src="@drawable/spa5"
+                android:scaleType="centerCrop" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/spa1"
+                    android:id="@+id/cardPlacesP1"
+                    android:scaleType="centerCrop"
+                    android:layout_margin="2dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginStart="3dp"
+                    android:paddingTop="3dp"
+                    android:paddingStart="2dp"
+                    android:paddingLeft="2dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardPlacesName"
+                        android:text="XYZ Salon and Spa"
+                        android:textSize="20sp"
+                        android:textColor="#FFFFFF"
+                        android:singleLine="true"
+                        android:ellipsize="end" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardPlacesLocation"
+                        android:text="Central Market, Punjabi Bagh"
+                        android:textSize="15sp"
+                        android:textColor="#FFFFFF"
+                        android:singleLine="true"
+                        android:ellipsize="end" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/spa2"
+                            android:id="@+id/cardPlacesP2"
+                            android:scaleType="centerCrop"/>
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/spa4"
+                            android:id="@+id/cardPlacesP3"
+                            android:layout_marginLeft="2dp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginRight="2dp"
+                            android:scaleType="centerCrop"/>
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/spa3"
+                            android:id="@+id/cardPlacesP4"
+                            android:layout_marginLeft="2dp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginRight="2dp"
+                            android:scaleType="centerCrop"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:orientation="horizontal"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_gravity="end|bottom" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4.7 Stars"
+                            android:id="@+id/cardPlacesVotes"
+                            android:textSize="18sp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginRight="5dp"
+                            android:textColor="#FFFFFF"/>
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/star"
+                            android:layout_gravity="center_vertical" />
+
+                    </LinearLayout>
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+
+
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>

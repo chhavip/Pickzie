@@ -1,0 +1,151 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="com.chhavi.pickzie.Fragment.UserBookings">
+
+    <RelativeLayout
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textSize="25sp"
+            android:background="#1A237E"
+            android:textStyle="bold"
+            android:text="MY BOOKINGS"
+            android:id="@+id/header"
+            android:textColor="#FFFFFF"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:elevation="7dp"
+            android:id="@+id/asd"
+            android:layout_below="@id/header"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+
+                android:text="Booking no. : 56586"
+                android:id="@+id/a"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@android:color/holo_red_dark"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_below="@id/a"
+                android:text="Booked on saturday, janury 12, 2016 at 5:00 pm"
+                android:id="@+id/b"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_below="@id/b"
+                android:text="amount : Rs 500"
+                android:id="@+id/c"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_below="@id/c"
+                android:text="salon : abc"
+                android:id="@+id/d"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_below="@id/d"
+                android:text="1) a : Rs 150    2) b : Rs 350"
+                android:id="@+id/e"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:elevation="7dp"
+            android:id="@+id/hgf"
+
+            android:layout_below="@id/asd"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+
+                android:text="Booking no. : 25634"
+                android:id="@+id/aa"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@android:color/holo_red_dark"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_below="@id/aa"
+                android:text="Booked on saturday, janury 12, 2016 at 5:00 pm"
+                android:id="@+id/bb"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_below="@id/bb"
+                android:text="amount : Rs 500"
+                android:id="@+id/cc"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_below="@id/cc"
+                android:text="salon : abc"
+                android:id="@+id/dd"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_below="@id/dd"
+                android:text="1) a : Rs 150    2) b : Rs 350"
+                android:id="@+id/ee"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</FrameLayout>

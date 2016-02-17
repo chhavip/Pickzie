@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.chhavi.pickzie.Activity.HomePage">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingBottom="20dp"
+            android:paddingTop="10dp"
+            android:layout_weight="50">
+            <android.support.v4.view.ViewPager
+                android:id="@+id/view_pager_home"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                >
+            </android.support.v4.view.ViewPager>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/mainImg"
+            android:paddingBottom="10dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="25">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="50"
+                android:id="@+id/home_linear_salon"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="80"
+                    android:src="@drawable/salan"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="20"
+                    android:text="SALON"
+                    android:textColor="@android:color/black"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+                    android:layout_gravity="center_vertical"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="50"
+                android:orientation="vertical"
+                android:id="@+id/home_linear_spa"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="80"
+                    android:src="@drawable/spa" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="20"
+                    android:text="SPA"
+                    android:textColor="@android:color/black"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+                    android:layout_gravity="center_vertical"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:layout_gravity="bottom">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/home"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/plus"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/homepage_userprofile"
+                android:src="@drawable/profile"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</FrameLayout>

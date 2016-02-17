@@ -1,0 +1,189 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.chhavi.pickzie.Fragment.UserSettingsOptions">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:textColor="#FFFFFF"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            android:background="#1A237E"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:text="PROFILE/ACCOUNT"
+            android:id="@+id/acc" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:text="Basic Info"
+            android:id="@+id/settings_basic"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:paddingLeft="20dp"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:text="My Bookings/Appointments"
+            android:id="@+id/settings_bookings"
+
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:paddingLeft="20dp"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:text="Favorites"
+            android:id="@+id/settings_fav"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:paddingLeft="20dp"
+            android:background="#1A237E"
+            android:paddingTop="10dp"
+            android:textColor="#FFFFFF"
+            android:text="PICKZIE"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            android:textStyle="bold"
+            android:id="@+id/pickzie" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:text="About Us"
+            android:id="@+id/settings_aboutus" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:text="Legal"
+            android:paddingLeft="20dp"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:id="@+id/settings_legal" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:text="Send Feedback"
+            android:paddingLeft="20dp"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:id="@+id/settings_send_feedback" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingLeft="20dp"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_weight="5"
+            android:text="Contact Us"
+            android:id="@+id/settings_contactus" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            android:textStyle="bold"
+            android:paddingLeft="20dp"
+            android:textColor="@android:color/black"
+            android:text="Rate Us On Our App Store"
+            android:id="@+id/settings_rate" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            android:textStyle="bold"
+            android:paddingLeft="20dp"
+            android:textColor="@android:color/black"
+            android:text="Refer To A Friend"
+            android:id="@+id/settings_refer" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            android:textStyle="bold"
+            android:paddingLeft="20dp"
+            android:textColor="@android:color/black"
+            android:text="App Settings"
+            android:id="@+id/settings_appsettings" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            android:textStyle="bold"
+            android:paddingLeft="20dp"
+            android:textColor="@android:color/black"
+            android:layout_weight="5"
+            android:text="Logout"
+            android:id="@+id/settings_logout" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#1A237E"
+            android:id="@+id/optionBar"
+            android:orientation="horizontal"
+            android:layout_weight="5">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="33"
+                android:id="@+id/homeImg"
+                android:src="@drawable/ic_home_white_18dp"
+                android:layout_height="match_parent"
+                android:onClick="home"
+                android:padding="2dp" />
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="33"
+                android:id="@+id/addonImg"
+                android:src="@drawable/ic_add_circle_white_18dp"
+                android:layout_height="match_parent"
+                android:onClick="addon"
+                android:padding="2dp" />
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="33"
+                android:id="@+id/profileImg"
+                android:src="@drawable/ic_person_pin_white_18dp"
+                android:layout_height="match_parent"
+                android:onClick="profile"
+                android:padding="2dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardView="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclerView_card_review"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:elevation="2dp" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cardView_review"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        cardView:cardUseCompatPadding="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:elevation="3dp"
+        android:focusable="true"
+        android:clickable="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:paddingLeft="5dp"
+            android:paddingStart="5dp"
+            android:paddingRight="5dp"
+            android:paddingEnd="5dp"
+            android:paddingBottom="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/spa1"
+                    android:id="@+id/cardReviewUserDP"
+                    android:scaleType="centerCrop"
+                    android:layout_margin="2dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginStart="3dp"
+                    android:paddingTop="3dp"
+                    android:paddingStart="2dp"
+                    android:paddingLeft="2dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardReviewName"
+                        android:text="ABC Person"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:singleLine="true"
+                        android:ellipsize="end" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardReviewLocation"
+                        android:text="Central Market, Punjabi Bagh"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:singleLine="true"
+                        android:ellipsize="end" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cardReviewTextReview"
+                android:textSize="15sp"
+                android:textColor="#303030"/>
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#515151"
+            android:layout_gravity="bottom"/>
+
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>
