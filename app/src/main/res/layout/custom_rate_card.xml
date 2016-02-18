@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardView="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@android:color/white"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclerView_rate_card"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:elevation="2dp" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cardView_rateCard"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        cardView:cardUseCompatPadding="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:elevation="3dp"
+        android:focusable="true"
+        android:clickable="true" >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="@android:color/white"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/rateCard_name_rate"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:textColor="#1A237E"
+                android:textStyle="bold"
+                android:text="djksfs"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:textSize="18dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/rateCard_name_price"
+                android:layout_marginLeft="5dp"
+                android:text="hcdbsjc"
+                android:layout_below="@id/rateCard_name_rate"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                />
+
+            <CheckBox
+               android:layout_width="wrap_content"
+                android:layout_margin="5dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:layout_alignParentRight="true"
+                android:id="@+id/rateCard_chech_box_rate"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

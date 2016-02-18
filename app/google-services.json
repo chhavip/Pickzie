@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_id": "pickzie-c5e6c",
+    "project_number": "275032829491",
+    "name": "Pickzie"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:275032829491:android:6a6f38ee28156caa",
+        "client_id": "android:com.chhavi.pickzie",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "com.chhavi.pickzie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "275032829491-3pb32k8o9ue2o50mvp65513dh6kq0s0g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chhavi.pickzie",
+            "certificate_hash": "5D504C575B47C8372C965F367729A4C42914D6BF"
+          }
+        },
+        {
+          "client_id": "275032829491-lmquckk9l3mchv3lbgkdevqlljhkl5rr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 2,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 2
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}
