@@ -160,7 +160,6 @@ public class ViewSalonSpa extends AppCompatActivity {
                 options.inSampleSize = scale;
                 options.inJustDecodeBounds = false;
                 bm = BitmapFactory.decodeFile(selectedImagePath, options);
-
             }
         }
     }
