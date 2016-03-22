@@ -1,9 +1,12 @@
 package com.chhavi.pickzie.Activity;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
@@ -32,6 +35,7 @@ import com.chhavi.pickzie.Helper.GradientOverImageDrawable;
 import com.chhavi.pickzie.Helper.RecyclerViewTouchListener;
 import com.chhavi.pickzie.Helper.ViewPagerAdapter;
 import com.chhavi.pickzie.R;
+import com.cocosw.bottomsheet.BottomSheet;
 
 import java.util.List;
 
@@ -41,6 +45,9 @@ public class Search extends AppCompatActivity implements View.OnClickListener {
     RecyclerView recyclerView;
     RVAdapter rvAdapter;
     Toolbar toolbar;
+    ImageView Home, Plus, Profile;
+    Drawable dr, d;
+    Bitmap bitmapToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,8 +87,53 @@ public class Search extends AppCompatActivity implements View.OnClickListener {
                 BitmapFactory.decodeResource(getResources(), R.drawable.spa4),
                 BitmapFactory.decodeResource(getResources(), R.drawable.spa5)));
 
+        contentCardSpa.addItem(new ContentCardSpa.DummyItem("MyABC Salon and Spa", "Main Market, Avantika", "2", "5", "20",
+                BitmapFactory.decodeResource(getResources(), R.drawable.spa1),
+                BitmapFactory.decodeResource(getResources(), R.drawable.spa2),
+                BitmapFactory.decodeResource(getResources(), R.drawable.spa3),
+                BitmapFactory.decodeResource(getResources(), R.drawable.spa4),
+                BitmapFactory.decodeResource(getResources(), R.drawable.spa5)));
+
+        contentCardSpa.addItem(new ContentCardSpa.DummyItem("MyABC Salon and Spa", "Main Market, Avantika", "2", "5", "20",
+                BitmapFactory.decodeResource(getResources(), R.drawable.spa1),
+                BitmapFactory.decodeResource(getResources(), R.drawable.spa2),
+                BitmapFactory.decodeResource(getResources(), R.drawable.spa3),
+                BitmapFactory.decodeResource(getResources(), R.drawable.spa4),
+                BitmapFactory.decodeResource(getResources(), R.drawable.spa5)));
+
+        contentCardSpa.addItem(new ContentCardSpa.DummyItem("MyABC Salon and Spa", "Main Market, Avantika", "2", "5", "20",
+                BitmapFactory.decodeResource(getResources(), R.drawable.spa1),
+                BitmapFactory.decodeResource(getResources(), R.drawable.spa2),
+                BitmapFactory.decodeResource(getResources(), R.drawable.spa3),
+                BitmapFactory.decodeResource(getResources(), R.drawable.spa4),
+                BitmapFactory.decodeResource(getResources(), R.drawable.spa5)));
+
         rvAdapter = new RVAdapter(contentCardSpa.ITEMS);
         recyclerView.setAdapter(rvAdapter);
+
+        Home = (ImageView) findViewById(R.id.search_home);
+        Plus = (ImageView) findViewById(R.id.search_plus);
+        Profile = (ImageView) findViewById(R.id.search_profile);
+
+        Profile.setOnClickListener(this);
+        Home.setOnClickListener(this);
+
+        dr = getResources().getDrawable(R.drawable.home);
+        bitmapToolbar = ((BitmapDrawable) dr).getBitmap();
+        d = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmapToolbar, 50, 50, true));
+        Home.setImageDrawable(d);
+
+        dr = getResources().getDrawable(R.drawable.plus);
+        bitmapToolbar = ((BitmapDrawable) dr).getBitmap();
+        d = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmapToolbar, 50, 50, true));
+        Plus.setImageDrawable(d);
+
+        dr = getResources().getDrawable(R.drawable.ic_account_circle_white_36dp);
+        bitmapToolbar = ((BitmapDrawable) dr).getBitmap();
+        d = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmapToolbar, 55, 55, true));
+        Profile.setImageDrawable(d);
+
+
         CardListener();
     }
 
@@ -108,6 +160,28 @@ public class Search extends AppCompatActivity implements View.OnClickListener {
             case R.id.search_home :
                 intent = new Intent(Search.this, HomePage.class);
                 startActivity(intent);
+                break;
+            case R.id.search_plus :
+                new BottomSheet.Builder(this, R.style.BottomSheet_StyleDialog).title("Add Now").sheet(R.menu.plus_bottomsheet)
+                        .listener(new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                switch (which) {
+                                    case R.id.bs_book:
+                                        Toast.makeText(getApplicationContext(),"Book an Appointment", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case R.id.bs_check:
+                                        Toast.makeText(getApplicationContext(),"Check In", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case R.id.bs_write:
+                                        Toast.makeText(getApplicationContext(),"Write a Review", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case R.id.bs_upload:
+                                        Toast.makeText(getApplicationContext(),"Upload a Photo", Toast.LENGTH_SHORT).show();
+                                        break;
+                                }
+                            }
+                        }).show();
                 break;
         }
     }

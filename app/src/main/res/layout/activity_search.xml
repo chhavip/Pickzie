@@ -42,6 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/plus"
+            android:id="@+id/search_plus"
             android:layout_centerHorizontal="true"
             android:layout_weight="1"/>
 

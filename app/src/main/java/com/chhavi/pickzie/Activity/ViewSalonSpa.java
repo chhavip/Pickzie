@@ -5,9 +5,12 @@ import android.content.Context;
 import android.content.CursorLoader;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -21,6 +24,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -39,16 +44,19 @@ import java.util.ArrayList;
 
 public class ViewSalonSpa extends AppCompatActivity {
     private LinearLayout call;
-    private LinearLayout pic;
-    private LinearLayout rev;
+    private ImageView pic;
+    private EditText rev;
     RateCard rateCard;
+    ImageView Home, Rate, Refer;
+    Drawable dr, d;
+    Bitmap bitmapToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_salon_spa);
 
-        rev = (LinearLayout) findViewById(R.id.reviewlayout);
+        rev = (EditText) findViewById(R.id.salonProfileEditTextReview);
         rev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,13 +76,25 @@ public class ViewSalonSpa extends AppCompatActivity {
                 }
             }
         });
-        pic = (LinearLayout) findViewById(R.id.addphoto);
-        pic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selectImage();
-            }
-        });
+
+        Home = (ImageView) findViewById(R.id.viewSalon_home);
+        Rate = (ImageView) findViewById(R.id.viewSalon_rate);
+        Refer = (ImageView) findViewById(R.id.viewSalon_refer);
+
+        dr = getResources().getDrawable(R.drawable.home);
+        bitmapToolbar = ((BitmapDrawable) dr).getBitmap();
+        d = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmapToolbar, 50, 50, true));
+        Home.setImageDrawable(d);
+
+        dr = getResources().getDrawable(R.drawable.ic_grade_white_24dp);
+        bitmapToolbar = ((BitmapDrawable) dr).getBitmap();
+        d = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmapToolbar, 55, 55, true));
+        Rate.setImageDrawable(d);
+
+        dr = getResources().getDrawable(R.drawable.ic_people_white_24dp);
+        bitmapToolbar = ((BitmapDrawable) dr).getBitmap();
+        d = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmapToolbar, 55, 55, true));
+        Refer.setImageDrawable(d);
 
         rateCard = new RateCard();
         android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();

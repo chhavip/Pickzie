@@ -34,6 +34,8 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
     ProfilePagePicture picture;
     ProfilePagePlaces places;
     ProfilePageReview review;
+    ImageView Home, Plus, Profile;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +81,29 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
         android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.framelayout_profile_page, places);
         fragmentTransaction.commit();
+
+        Home = (ImageView) findViewById(R.id.profilepage_home);
+        Plus = (ImageView) findViewById(R.id.profilepage_plus);
+        Profile = (ImageView) findViewById(R.id.profilepage_profile);
+
+        Profile.setOnClickListener(this);
+        Home.setOnClickListener(this);
+
+        dr = getResources().getDrawable(R.drawable.home);
+        bitmapToolbar = ((BitmapDrawable) dr).getBitmap();
+        d = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmapToolbar, 50, 50, true));
+        Home.setImageDrawable(d);
+
+        dr = getResources().getDrawable(R.drawable.plus);
+        bitmapToolbar = ((BitmapDrawable) dr).getBitmap();
+        d = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmapToolbar, 50, 50, true));
+        Plus.setImageDrawable(d);
+
+        dr = getResources().getDrawable(R.drawable.ic_account_circle_white_36dp);
+        bitmapToolbar = ((BitmapDrawable) dr).getBitmap();
+        d = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmapToolbar, 55, 55, true));
+        Profile.setImageDrawable(d);
+
 
     }
 
@@ -156,10 +181,10 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
 
         Intent intent ;
         switch(v.getId()){
-            case R.id.homepage_userprofile:
-                intent = new Intent(ProfilePage.this, ProfilePage.class);
-                startActivity(intent);
-                break;
+//            case R.id.homepage_userprofile:
+//                intent = new Intent(ProfilePage.this, ProfilePage.class);
+//                startActivity(intent);
+//                break;
             case R.id.homepage_plus:
                 Log.v("MyApp", "Plus button");
                 new BottomSheet.Builder(this, R.style.BottomSheet_StyleDialog).title("Add Now").sheet(R.menu.plus_bottomsheet)
@@ -183,6 +208,9 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
                             }
                         }).show();
                 break;
+            case R.id.homepage_home:
+                intent = new Intent(ProfilePage.this, HomePage.class);
+                startActivity(intent);
         }
 
     }
