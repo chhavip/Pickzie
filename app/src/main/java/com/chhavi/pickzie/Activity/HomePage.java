@@ -1,14 +1,20 @@
 package com.chhavi.pickzie.Activity;
 
 import android.app.Activity;
+import android.app.SearchManager;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+
+import android.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -55,6 +61,7 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
         findViewById(R.id.home_linear_spa).setOnClickListener(this);
         Profile.setOnClickListener(this);
         Home.setOnClickListener(this);
+        Plus.setOnClickListener(this);
 
         dr = getResources().getDrawable(R.drawable.home);
         bitmapToolbar = ((BitmapDrawable) dr).getBitmap();
@@ -120,6 +127,18 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
         Log.v("MyApp", getClass().toString() + " onCreateOptionsMenu");
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.menu_home_page, menu);
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+//        SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        SearchView searchView = (android.widget.SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));;
+//        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        if(searchView==null){
+            Log.v("MyApp", "SearchView Null");
+        } if(searchManager==null){
+            Log.v("MyApp", "SearchManager Null");
+        } else {
+            Log.v("MyApp", "else");
+            searchView.setSearchableInfo(searchManager.getSearchableInfo(new ComponentName(getApplicationContext(), Search.class)));
+        }
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -128,7 +147,11 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
         Log.v("MyApp", getClass().toString() + " onOptionsItemSelected");
         Intent intent;
         switch (item.getItemId()){
-
+            case R.id.action_search:
+//                intent = new Intent(HomePage.this, Search.class);
+//                startActivity(intent);
+                
+                break;
             default: Toast.makeText(getApplicationContext(), "Wrong Item Selected", Toast.LENGTH_LONG).show();
         }
         return super.onOptionsItemSelected(item);

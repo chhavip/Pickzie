@@ -1,6 +1,7 @@
 package com.chhavi.pickzie.Activity;
 
 import android.app.Dialog;
+import android.app.SearchManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -117,7 +118,7 @@ public class Search extends AppCompatActivity implements View.OnClickListener {
 
         Profile.setOnClickListener(this);
         Home.setOnClickListener(this);
-
+        Plus.setOnClickListener(this);
         dr = getResources().getDrawable(R.drawable.home);
         bitmapToolbar = ((BitmapDrawable) dr).getBitmap();
         d = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmapToolbar, 50, 50, true));
@@ -132,9 +133,21 @@ public class Search extends AppCompatActivity implements View.OnClickListener {
         bitmapToolbar = ((BitmapDrawable) dr).getBitmap();
         d = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmapToolbar, 55, 55, true));
         Profile.setImageDrawable(d);
-
-
+        handleIntent(getIntent());
         CardListener();
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        setIntent(intent);
+        handleIntent(intent);
+    }
+
+    public void handleIntent(Intent intent ){
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            String query = intent.getStringExtra(SearchManager.QUERY);
+            Log.v("MyApp", getClass().toString() + "Search Querry " + query );
+        }
     }
 
     private void CardListener(){

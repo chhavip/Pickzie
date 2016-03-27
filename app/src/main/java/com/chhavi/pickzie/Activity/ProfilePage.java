@@ -88,6 +88,7 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
 
         Profile.setOnClickListener(this);
         Home.setOnClickListener(this);
+        Plus.setOnClickListener(this);
 
         dr = getResources().getDrawable(R.drawable.home);
         bitmapToolbar = ((BitmapDrawable) dr).getBitmap();
@@ -185,7 +186,7 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
 //                intent = new Intent(ProfilePage.this, ProfilePage.class);
 //                startActivity(intent);
 //                break;
-            case R.id.homepage_plus:
+            case R.id.profilepage_plus:
                 Log.v("MyApp", "Plus button");
                 new BottomSheet.Builder(this, R.style.BottomSheet_StyleDialog).title("Add Now").sheet(R.menu.plus_bottomsheet)
                         .listener(new DialogInterface.OnClickListener() {
@@ -208,7 +209,7 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
                             }
                         }).show();
                 break;
-            case R.id.homepage_home:
+            case R.id.profilepage_home:
                 intent = new Intent(ProfilePage.this, HomePage.class);
                 startActivity(intent);
         }
