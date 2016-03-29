@@ -1,6 +1,7 @@
 package com.chhavi.pickzie.Fragment;
 
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -12,14 +13,17 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.chhavi.pickzie.Activity.ViewSalonSpa;
 import com.chhavi.pickzie.Helper.ContentCardSpa;
 import com.chhavi.pickzie.Helper.GradientOverImageDrawable;
+import com.chhavi.pickzie.Helper.RecyclerViewTouchListener;
 import com.chhavi.pickzie.R;
 
 import java.util.List;
@@ -74,11 +78,23 @@ public class ProfilePagePlaces extends Fragment {
 
         rvAdapter = new RVAdapter( contentCardSpa.ITEMS );
         recyclerView.setAdapter(rvAdapter);
-
+        CardListener();
         return view;
     }
 
-    private class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
+    private void CardListener(){
+        recyclerView.addOnItemTouchListener(new RecyclerViewTouchListener(getContext(),
+                new RecyclerViewTouchListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View v, int position) {
+                        Log.v("MyApp", getClass().toString() + " CardListener " + position);
+                        Intent intent = new Intent(getActivity(), ViewSalonSpa.class);
+                        startActivity(intent);
+                    }
+                }));
+    }
+
+    private class RVAdapter extends RecyclerView.Adapter<CardViewHolder> {
 
         ContentCardSpa content = new ContentCardSpa();
 
@@ -87,14 +103,19 @@ public class ProfilePagePlaces extends Fragment {
         }
 
         @Override
-        public RVAdapter.CardViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public CardViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_places, parent, false);
-            CardViewHolder cardViewHolder = new CardViewHolder(view);
+            CardViewHolder cardViewHolder = new CardViewHolder(view, new CardViewHolder.MyInterface() {
+                @Override
+                public void ImageListener(ImageView callerImage) {
+                    Log.v("MyApp", "Image was Clicked");
+                }
+            });
             return cardViewHolder;
         }
 
         @Override
-        public void onBindViewHolder(RVAdapter.CardViewHolder holder, int position) {
+        public void onBindViewHolder(CardViewHolder holder, int position) {
             holder.name.setText(content.ITEMS.get(position).Name);
             holder.location.setText(content.ITEMS.get(position).Locality);
             holder.votes.setText(content.ITEMS.get(position).Votes);
@@ -119,22 +140,42 @@ public class ProfilePagePlaces extends Fragment {
             return content.ITEMS.size();
         }
 
-        public class CardViewHolder extends RecyclerView.ViewHolder {
-            CardView cardView;
-            TextView name, location, votes;
-            ImageView BG, P1, P2, P3, P4;
-            public CardViewHolder(View itemView) {
-                super(itemView);
-                cardView = (CardView) itemView.findViewById(R.id.cardView_places);
-                name = (TextView) itemView.findViewById(R.id.cardPlacesName);
-                location = (TextView) itemView.findViewById(R.id.cardPlacesLocation);
-                votes = (TextView) itemView.findViewById(R.id.cardPlacesVotes);
-                BG = (ImageView) itemView.findViewById(R.id.cardPlacesBG);
-                P1 = (ImageView) itemView.findViewById(R.id.cardPlacesP1);
-                P2 = (ImageView) itemView.findViewById(R.id.cardPlacesP2);
-                P3 = (ImageView) itemView.findViewById(R.id.cardPlacesP3);
-                P4 = (ImageView) itemView.findViewById(R.id.cardPlacesP4);
+    }
+
+    public static class CardViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        CardView cardView;
+        TextView name, location, votes;
+        ImageView BG, P1, P2, P3, P4;
+        public MyInterface mListener;
+        public CardViewHolder(View itemView, MyInterface Listener) {
+            super(itemView);
+            mListener = Listener;
+            cardView = (CardView) itemView.findViewById(R.id.cardView_places);
+            name = (TextView) itemView.findViewById(R.id.cardPlacesName);
+            location = (TextView) itemView.findViewById(R.id.cardPlacesLocation);
+            votes = (TextView) itemView.findViewById(R.id.cardPlacesVotes);
+            BG = (ImageView) itemView.findViewById(R.id.cardPlacesBG);
+            P1 = (ImageView) itemView.findViewById(R.id.cardPlacesP1);
+            P2 = (ImageView) itemView.findViewById(R.id.cardPlacesP2);
+            P3 = (ImageView) itemView.findViewById(R.id.cardPlacesP3);
+            P4 = (ImageView) itemView.findViewById(R.id.cardPlacesP4);
+        }
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.cardPlacesP2:
+                case R.id.cardPlacesP3:
+                case R.id.cardPlacesP4:
+                    mListener.ImageListener((ImageView)v);
+                    break;
             }
         }
+
+        public interface MyInterface {
+            void ImageListener(ImageView callerImage);
+        }
+
     }
+
 }

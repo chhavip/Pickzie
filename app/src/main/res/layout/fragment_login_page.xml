@@ -15,79 +15,78 @@
     <android.support.percent.PercentRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_heightPercent="20%"
-        app:layout_marginTopPercent="5%"
-        android:id="@+id/login_page_logo">
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="wrap_content"
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_heightPercent="20%"
+            app:layout_marginTopPercent="5%"
+            android:id="@+id/login_page_logo">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:src="@drawable/dp"/>
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/login_page_text"
+            android:text="@string/loginPage"
+            app:layout_heightPercent="50%"
+            android:padding="30dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_below="@+id/login_page_logo"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"/>
+
+        <!--<android.support.v4.view.ViewPager-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--app:layout_heightPercent="45%"-->
+            <!--android:id="@+id/login_page_viewpager"-->
+            <!--android:layout_below="@+id/login_page_logo"-->
+            <!--android:layout_marginTop="15dp"-->
+            <!--android:layout_marginBottom="5dp"/>-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:scaleType="centerCrop"
-            android:src="@drawable/dp"/>
-    </LinearLayout>
+            android:layout_below="@+id/login_page_text"
+            android:gravity="center_vertical|center_horizontal"
+            style="?android:attr/buttonBarStyle">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/login_page_text"
-        android:text="@string/loginPage"
-        app:layout_heightPercent="50%"
-        android:padding="30dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:layout_below="@+id/login_page_logo"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="5dp"/>
-
-    <!--<android.support.v4.view.ViewPager-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="0dp"-->
-        <!--app:layout_heightPercent="45%"-->
-        <!--android:id="@+id/login_page_viewpager"-->
-        <!--android:layout_below="@+id/login_page_logo"-->
-        <!--android:layout_marginTop="15dp"-->
-        <!--android:layout_marginBottom="5dp"/>-->
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/login_page_text"
-        android:gravity="center_vertical|center_horizontal"
-        style="?android:attr/buttonBarStyle">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <Button
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SignUp"
-                android:textSize="20sp"
-                android:id="@+id/login_page_button_signup"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:layout_gravity="center_horizontal"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_marginRight="10dp"
-                android:layout_marginEnd="10dp"/>
+                android:layout_height="wrap_content">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SignUp"
+                    android:textSize="20sp"
+                    android:id="@+id/login_page_button_signup"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:layout_gravity="center_horizontal"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginEnd="10dp"/>
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Login"
-                android:textSize="20sp"
-                android:id="@+id/login_page_button_login"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                style="?android:attr/buttonBarButtonStyle"/>
-        </LinearLayout>
-    </RelativeLayout>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Login"
+                    android:textSize="20sp"
+                    android:id="@+id/login_page_button_login"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    style="?android:attr/buttonBarButtonStyle"/>
+            </LinearLayout>
+        </RelativeLayout>
     </android.support.percent.PercentRelativeLayout>
 </android.support.percent.PercentFrameLayout>

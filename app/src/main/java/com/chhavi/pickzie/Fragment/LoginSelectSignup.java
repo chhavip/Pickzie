@@ -52,6 +52,7 @@ public class LoginSelectSignup extends Fragment implements View.OnClickListener,
 
     private static final int RC_SIGN_IN = 9001;
     private GoogleApiClient mGoogleApiClient;
+    GoogleSignInOptions gso;
 
     LoginButton loginButton;
     CallbackManager callbackManager;
@@ -86,14 +87,13 @@ public class LoginSelectSignup extends Fragment implements View.OnClickListener,
 
         // Build a GoogleApiClient with access to the Google Sign-In API and the
         // options specified by gso.
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder( GoogleSignInOptions.DEFAULT_SIGN_IN)
+        gso = new GoogleSignInOptions.Builder( GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestScopes(new Scope(Scopes.PLUS_LOGIN)).requestEmail().build();
 //        Log.v("MyApp", "onCreate() 1");
         //Build a GoogleApiClient with access to the Google Sign-In API and the
         // options specified by gso.
 
-        mGoogleApiClient = new GoogleApiClient.Builder(getActivity()).enableAutoManage(getActivity(), LoginSelectSignup.this )
-                .addApi(Auth.GOOGLE_SIGN_IN_API, gso).addApi(Plus.API).build();
+        mGoogleApiClient = new GoogleApiClient.Builder(getActivity()).addApi(Auth.GOOGLE_SIGN_IN_API, gso).addApi(Plus.API).build();
 
         return view;
     }

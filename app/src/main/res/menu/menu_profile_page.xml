@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <!-- Search / will display always -->
-    <item android:id="@+id/action_notification"
+    <item android:id="@+id/action_favourite"
         android:icon="@drawable/ic_star_rate_white_36dp"
-        android:title="@string/offerNnotifications"
+        android:title="@string/favourite"
         app:showAsAction="always"/>
 
     <!-- Location Found -->

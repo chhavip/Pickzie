@@ -4,10 +4,14 @@ package com.chhavi.pickzie.Helper;
  * Created by Mukesh on 2/12/2016.
  */
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -31,7 +35,7 @@ public class HomeViewPager extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(View view, Object o) {
-        return (view== (RelativeLayout)o);
+        return (view== (FrameLayout)o);
     }
 
     @Override
@@ -41,7 +45,17 @@ public class HomeViewPager extends PagerAdapter {
         View item_view = layoutinflator.inflate(R.layout.home_swipe_layout,container,false);
         ImageView imageView = (ImageView) item_view.findViewById(R.id.image_view);
         TextView textview = (TextView) item_view.findViewById(R.id.myImageViewText);
-        imageView.setImageResource(imaage_resources[position]);
+
+        Bitmap bitmap = BitmapFactory.decodeResource(ctx.getResources(), imaage_resources[position]);
+
+        int startColor = Color.argb(0, 0, 0, 0);
+        int endColor = Color.argb(255, 189, 54, 65);
+        GradientOverImageDrawable gradientOverImageDrawable = new GradientOverImageDrawable(ctx.getResources(), bitmap);
+        gradientOverImageDrawable.setGradientColors(startColor, endColor);
+        gradientOverImageDrawable.setGradientStart(0.5);
+        gradientOverImageDrawable.setGradientEnd(1.0);
+        imageView.setImageDrawable(gradientOverImageDrawable);
+
         textview.setText(n[position]);
         container.addView(item_view);
         return item_view;
@@ -49,6 +63,6 @@ public class HomeViewPager extends PagerAdapter {
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView((RelativeLayout)object);
+        container.removeView((FrameLayout)object);
     }
 }

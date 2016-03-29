@@ -5,7 +5,9 @@
     android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -100,9 +102,10 @@
                     android:textColor="@android:color/white" />
 
             </RelativeLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="40dp"
                 android:background="#1A237E"
                 android:orientation="horizontal">
                 <LinearLayout
@@ -117,14 +120,7 @@
                         android:src="@drawable/ic_phone_white_24dp"
                         android:layout_height="match_parent"
                         android:padding="2dp" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="call"
-                        android:textColor="#FFFFFF"
-                        android:gravity="center"
-                        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
-                        android:textStyle="bold"/>
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -139,14 +135,14 @@
                         android:layout_height="match_parent"
                         android:onClick="call"
                         android:padding="2dp" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="check in"
-                        android:textColor="#FFFFFF"
-                        android:gravity="center"
-                        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
-                        android:textStyle="bold"/>
+                    <!--<TextView-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="check in"-->
+                        <!--android:textColor="#FFFFFF"-->
+                        <!--android:gravity="center"-->
+                        <!--android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"-->
+                        <!--android:textStyle="bold"/>-->
                 </LinearLayout>
 
                 <LinearLayout
@@ -162,59 +158,39 @@
                         android:layout_height="match_parent"
                         android:onClick="call"
                         android:padding="2dp" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="book"
-                        android:textColor="#FFFFFF"
-                        android:gravity="center"
-                        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
-                        android:textStyle="bold"/>
+                    <!--<TextView-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="book"-->
+                        <!--android:textColor="#FFFFFF"-->
+                        <!--android:gravity="center"-->
+                        <!--android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"-->
+                        <!--android:textStyle="bold"/>-->
                 </LinearLayout>
+            </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:orientation="vertical"
-                    android:id="@+id/reviewlayout"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#1A237E">
+                <EditText
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_weight="70"
-                        android:src="@drawable/review"
-                        android:layout_height="match_parent"
-                        android:padding="2dp" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="review"
-                        android:textColor="#FFFFFF"
-                        android:gravity="center"
-                        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
-                        android:textStyle="bold"/>
-                </LinearLayout>
+                    android:hint="Write a Review..."
+                    android:id="@+id/salonProfileEditTextReview"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:textSize="20sp"
+                    android:padding="8dp" />
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:orientation="vertical"
-                    android:id="@+id/addphoto"
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:src="@drawable/ic_camera_alt_white_18dp"
+                    android:id="@+id/salonProfileImageViewAddpic"
                     android:layout_height="match_parent"
-                    android:layout_weight="1">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_weight="70"
-                        android:src="@drawable/ic_camera_alt_white_18dp"
-                        android:layout_height="match_parent"
-                        android:padding="2dp" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="add pic"
-                        android:textColor="#FFFFFF"
-                        android:gravity="center"
-                        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
-                        android:textStyle="bold"/>
-                </LinearLayout>
+                    android:padding="2dp"
+                    android:layout_weight="2"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -237,33 +213,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
-        android:paddingTop="2dp"
-        android:paddingBottom="2dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
         android:layout_gravity="bottom">
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_grade_white_24dp"
+            android:id="@+id/viewSalon_home"
+
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            android:padding="4dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/viewSalon_rate"
+
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:padding="4dp"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_home_white_18dp"
-            android:layout_centerHorizontal="true"
-            android:layout_weight="1"/>
+            android:id="@+id/viewSalon_refer"
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_people_white_24dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:padding="4dp"/>
     </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

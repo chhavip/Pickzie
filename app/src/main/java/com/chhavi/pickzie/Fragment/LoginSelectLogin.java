@@ -75,32 +75,6 @@ public class LoginSelectLogin extends Fragment implements View.OnClickListener, 
         }
     };
 
-
-    @Override
-    public void onPause() {
-        mGoogleApiClient = null;
-        gso = null;
-        Log.v("MyApp", getClass().toString() + " onPause()");
-        super.onPause();
-    }
-
-    @Override
-    public void onResume() {
-        Log.v("MyApp", getClass().toString() + " onResume()");
-        // Build a GoogleApiClient with access to the Google Sign-In API and the
-        // options specified by gso.
-        gso = new GoogleSignInOptions.Builder( GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestScopes(new Scope(Scopes.PLUS_LOGIN)).requestEmail().build();
-//        Log.v("MyApp", "onCreate() 1");
-        //Build a GoogleApiClient with access to the Google Sign-In API and the
-        // options specified by gso.
-
-        mGoogleApiClient = new GoogleApiClient.Builder(getActivity()).enableAutoManage(getActivity(), LoginSelectLogin.this )
-                .addApi(Auth.GOOGLE_SIGN_IN_API, gso).addApi(Plus.API).build();
-
-        super.onResume();
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -111,6 +85,15 @@ public class LoginSelectLogin extends Fragment implements View.OnClickListener, 
         view.findViewById(R.id.image_selectLogin_fb).setOnClickListener(this);
         view.findViewById(R.id.image_selectLogin_gplus).setOnClickListener(this);
 
+        // Build a GoogleApiClient with access to the Google Sign-In API and the
+        // options specified by gso.
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestScopes(new Scope(Scopes.PLUS_LOGIN)).requestEmail().build();
+//        Log.v("MyApp", "onCreate() 1");
+
+        mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso).addApi(Plus.API).build();
+
         return view;
     }
 
@@ -120,7 +103,9 @@ public class LoginSelectLogin extends Fragment implements View.OnClickListener, 
         switch (v.getId()){
             case R.id.login_login_login:
                 Intent intent = new Intent(getActivity(), HomePage.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
+                getActivity().finish();
                 break;
             case R.id.image_selectLogin_gplus:
                 signIn();

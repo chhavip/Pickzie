@@ -127,7 +127,7 @@
                 android:clickable="true"/>
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:id="@+id/imageView_profilePage_review"
                 android:src="@drawable/review"
@@ -155,26 +155,28 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/home"
+            android:id="@+id/profilepage_home"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:padding="4dp"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/plus"
+            android:id="@+id/profilepage_plus"
             android:layout_centerHorizontal="true"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:padding="4dp"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/profile"
             android:id="@+id/profilepage_profile"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:padding="4dp"/>
     </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

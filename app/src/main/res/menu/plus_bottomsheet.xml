@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/bs_upload"
+        android:title="Upload A Photo"
+        android:icon="@drawable/picture"/>
+
+    <item android:id="@+id/bs_write"
+        android:title="Write a Review"
+        android:icon="@drawable/review"/>
+
+    <item android:id="@+id/bs_book"
+        android:title="Book An Appointment"
+        android:icon="@drawable/ic_book"/>
+
+    <item android:id="@+id/bs_check"
+        android:title="Check In"
+        android:icon="@drawable/place" />
+
+</menu>

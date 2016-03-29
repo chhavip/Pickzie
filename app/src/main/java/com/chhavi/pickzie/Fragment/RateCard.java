@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +17,10 @@ import android.widget.TextView;
 import com.chhavi.pickzie.Helper.ContentCardPictures;
 import com.chhavi.pickzie.Helper.ContentCardReview;
 import com.chhavi.pickzie.Helper.ContentRateCard;
+import com.chhavi.pickzie.Helper.ExpandableListAdapter;
 import com.chhavi.pickzie.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -25,84 +28,71 @@ import de.hdodenhof.circleimageview.CircleImageView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RateCard extends Fragment {
+public class RateCard extends Fragment implements View.OnClickListener {
 
 
     public RateCard() {
         // Required empty public constructor
     }
 
-    private RecyclerView recyclerView;
-    private RVAdapter rvAdapter;
-    private ContentRateCard contentRateCard;
+    private RecyclerView recyclerview;
+    List<ExpandableListAdapter.Item> data;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_rate_card, container, false);
+        recyclerview = (RecyclerView) view.findViewById(R.id.recyclerviewRateCard);
+        recyclerview.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        data = new ArrayList<>();
 
-        contentRateCard = new ContentRateCard();
+        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.HEADER, "Waxing", "10"));
+        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "Apple", "20"));
+        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "Orange", "30"));
+        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "Banana", "40"));
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView_rate_card);
-        recyclerView.setHasFixedSize(false);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(linearLayoutManager);
+        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.HEADER, "Tanning", "50"));
+        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "Audi", "60"));
+        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "Aston Martin", "70"));
+        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "BMW", "80"));
+        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "Cadillac", "90"));
 
-        contentRateCard.addItem(new ContentRateCard.DummyItem("Hair", "100 Rs"));
-        contentRateCard.addItem(new ContentRateCard.DummyItem("Face", "150 Rs"));
-        contentRateCard.addItem(new ContentRateCard.DummyItem("Hair", "100 Rs"));
-        contentRateCard.addItem(new ContentRateCard.DummyItem("Face", "150 Rs"));
-        contentRateCard.addItem(new ContentRateCard.DummyItem("Hair", "100 Rs"));
-        contentRateCard.addItem(new ContentRateCard.DummyItem("Face", "150 Rs"));
-        contentRateCard.addItem(new ContentRateCard.DummyItem("Hair", "100 Rs"));
-        contentRateCard.addItem(new ContentRateCard.DummyItem("Face", "150 Rs"));
-        contentRateCard.addItem(new ContentRateCard.DummyItem("Hair", "100 Rs"));
-        contentRateCard.addItem(new ContentRateCard.DummyItem("Face", "150 Rs"));
+        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.HEADER, "Facial", "50"));
+        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "Audi", "60"));
+        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "Aston Martin", "70"));
+        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "BMW", "80"));
+        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "Cadillac", "90"));
 
+        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.HEADER, "Tanning", "50"));
+        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "Audi", "60"));
+        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "Aston Martin", "70"));
+        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "BMW", "80"));
+        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "Cadillac", "90"));
 
-        rvAdapter = new RVAdapter( contentRateCard.ITEMS );
-        recyclerView.setAdapter(rvAdapter);
+        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.HEADER, "Tanning", "50"));
+        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "Audi", "60"));
+        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "Aston Martin", "70"));
+        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "BMW", "80"));
+        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "Cadillac", "90"));
 
+        recyclerview.setAdapter(new ExpandableListAdapter(data));
+
+        view.findViewById(R.id.findSelected).setOnClickListener(this);
         return view;
     }
 
-    private class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder>{
-        ContentRateCard contentRateCard = new ContentRateCard();
-
-        public RVAdapter(List<ContentRateCard.DummyItem> vITEMS ){
-            contentRateCard.ITEMS = vITEMS;
-        }
-
-        @Override
-        public RVAdapter.CardViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_rate_card, parent, false);
-            return new CardViewHolder(view);
-        }
-
-        @Override
-        public void onBindViewHolder(RVAdapter.CardViewHolder holder, int position) {
-            holder.name.setText(contentRateCard.ITEMS.get(position).Name);
-            holder.price.setText(contentRateCard.ITEMS.get(position).Price);
-        }
-
-        @Override
-        public int getItemCount() {
-            return contentRateCard.ITEMS.size();
-        }
-
-        public class CardViewHolder extends RecyclerView.ViewHolder {
-            CardView card;
-            TextView name, price;
-            
-            public CardViewHolder(View itemView) {
-                super(itemView);
-                card = (CardView) itemView.findViewById(R.id.cardView_rateCard);
-                name = (TextView) itemView.findViewById(R.id.rateCard_name_rate);
-                price = (TextView) itemView.findViewById(R.id.rateCard_name_price);
-            }
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.findSelected:
+                for(int i=0;i<data.size();i++) {
+                    if(data.get(i).checked)
+                        Log.v("MyApp", "Checked" + data.get(i).text);
+                    else
+                        Log.v("MyApp", "Not Checked" + data.get(i).text );
+                }
+                break;
         }
     }
-
-
 }
