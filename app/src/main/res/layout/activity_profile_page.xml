@@ -88,7 +88,8 @@
             android:background="@color/colorAccent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabIndicatorColor="@color/colorAccentDark"/>
+            app:tabIndicatorColor="@color/colorAccentDark"
+            app:tabIndicatorHeight="10dp"/>
 
     </android.support.design.widget.AppBarLayout>
 
