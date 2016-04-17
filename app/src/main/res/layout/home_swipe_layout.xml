@@ -17,19 +17,21 @@
         android:gravity="center"
         android:text="Hello"
         android:textColor="#FFFFFF"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_gravity="bottom|start"/>
+        android:layout_gravity="top|start"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:orientation="horizontal"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:layout_gravity="bottom|end" >
+        android:layout_gravity="top|end" >
 
         <TextView
             android:layout_width="wrap_content"
@@ -48,4 +50,17 @@
             android:src="@drawable/star"
             android:layout_gravity="center_vertical" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/myImageViewText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_gravity="bottom|start"/>
 </FrameLayout>

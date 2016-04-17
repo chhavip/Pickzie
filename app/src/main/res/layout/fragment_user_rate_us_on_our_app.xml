@@ -1,0 +1,38 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.chhavi.pickzie.Fragment.UserContactUs">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textSize="25sp"
+        android:background="#1A237E"
+        android:textStyle="bold"
+        android:text="RATE US ON OUR APP STORE"
+        android:textColor="#FFFFFF"
+        android:id="@+id/header" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_below="@id/header"
+        android:text="Rate us "
+        android:id="@+id/a"
+
+        android:textSize="20sp"
+        android:textColor="@android:color/black" />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratingBar"
+        android:layout_below="@+id/a"
+        android:layout_alignLeft="@+id/a"
+        android:layout_alignStart="@+id/a" />
+
+
+</RelativeLayout>

@@ -21,6 +21,7 @@ import com.chhavi.pickzie.R;
 public class HomeViewPager extends PagerAdapter {
     private int[] imaage_resources = {R.drawable.a,R.drawable.b,R.drawable.c,R.drawable.d, R.drawable.e};
     private String[] n={"LOOKS","HABIB","ABC","ASD","IIU"};
+    private String[] m={"Recommended","Featured","Recommended","Sponsored","Recommended"};
     private Context ctx;
     private LayoutInflater layoutinflator;
 
@@ -45,18 +46,21 @@ public class HomeViewPager extends PagerAdapter {
         View item_view = layoutinflator.inflate(R.layout.home_swipe_layout,container,false);
         ImageView imageView = (ImageView) item_view.findViewById(R.id.image_view);
         TextView textview = (TextView) item_view.findViewById(R.id.myImageViewText);
+        TextView textview2 = (TextView) item_view.findViewById(R.id.myImageViewText2);
 
         Bitmap bitmap = BitmapFactory.decodeResource(ctx.getResources(), imaage_resources[position]);
 
-        int startColor = Color.argb(0, 0, 0, 0);
-        int endColor = Color.argb(255, 189, 54, 65);
+        int startColor = Color.argb(170, 0, 0, 0);
+        int endColor =Color.argb(200, 0, 0, 0);
+
         GradientOverImageDrawable gradientOverImageDrawable = new GradientOverImageDrawable(ctx.getResources(), bitmap);
         gradientOverImageDrawable.setGradientColors(startColor, endColor);
-        gradientOverImageDrawable.setGradientStart(0.5);
+        gradientOverImageDrawable.setGradientStart(0.0);
         gradientOverImageDrawable.setGradientEnd(1.0);
         imageView.setImageDrawable(gradientOverImageDrawable);
 
         textview.setText(n[position]);
+        textview2.setText(m[position]+"...");
         container.addView(item_view);
         return item_view;
     }
