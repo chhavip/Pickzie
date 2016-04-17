@@ -16,9 +16,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            app:layout_scrollFlags="scroll">
+            app:layout_scrollFlags="scroll|enterAlways">
 
-            <include layout="@layout/toolbar" />
+            <include layout="@layout/toolbar"/>
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -83,65 +83,20 @@
 
         </LinearLayout>
 
-    </android.support.design.widget.AppBarLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <LinearLayout
+        <android.support.design.widget.TabLayout
+            android:id="@+id/profile_tabs"
+            android:background="@color/colorAccent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@color/colorAccent" >
+            app:tabIndicatorColor="@color/colorAccentDark"/>
 
-            <!--<ImageView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="1"-->
-            <!--android:id="@+id/imageView_profilePage_people"-->
-            <!--android:contentDescription="@string/profile_people"-->
-            <!--android:src="@drawable/people"-->
-            <!--android:paddingTop="4dp"-->
-            <!--android:paddingBottom="4dp"/>-->
+    </android.support.design.widget.AppBarLayout>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/imageView_profilePage_place"
-                android:src="@drawable/place"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp"
-                android:clickable="true"/>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/imageView_profilePage_pictures"
-                android:src="@drawable/picture"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp"
-                android:clickable="true"/>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:id="@+id/imageView_profilePage_review"
-                android:src="@drawable/review"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp"
-                android:clickable="true"/>
-        </LinearLayout>
-
-        <FrameLayout
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager_profile"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
-            android:id="@+id/framelayout_profile_page" />
-
-    </LinearLayout>
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <LinearLayout
         android:layout_width="match_parent"

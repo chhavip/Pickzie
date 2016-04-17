@@ -12,7 +12,7 @@ import com.chhavi.pickzie.R;
 
 
 public class UserSendFeedback extends Fragment {
-    
+
     public UserSendFeedback() {
         // Required empty public constructor
     }

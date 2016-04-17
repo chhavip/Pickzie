@@ -68,21 +68,6 @@ public class ProfilePagePicture extends Fragment {
                 BitmapFactory.decodeResource(getResources(), R.drawable.dp),
                 BitmapFactory.decodeResource(getResources(), R.drawable.spa3)));
 
-        contentCardPictures.addItem(new ContentCardPictures.DummyItem("ABC Person", "Main Market, Avantika",
-                BitmapFactory.decodeResource(getResources(), R.drawable.dp),
-                BitmapFactory.decodeResource(getResources(), R.drawable.spa3)));
-
-        contentCardPictures.addItem(new ContentCardPictures.DummyItem("ABC Person", "Main Market, Avantika",
-                BitmapFactory.decodeResource(getResources(), R.drawable.dp),
-                BitmapFactory.decodeResource(getResources(), R.drawable.spa3)));
-
-        contentCardPictures.addItem(new ContentCardPictures.DummyItem("ABC Person", "Main Market, Avantika",
-                BitmapFactory.decodeResource(getResources(), R.drawable.dp),
-                BitmapFactory.decodeResource(getResources(), R.drawable.spa3)));
-
-        contentCardPictures.addItem(new ContentCardPictures.DummyItem("ABC Person", "Main Market, Avantika",
-                BitmapFactory.decodeResource(getResources(), R.drawable.dp),
-                BitmapFactory.decodeResource(getResources(), R.drawable.spa3)));
 
         contentCardPictures.addItem(new ContentCardPictures.DummyItem("ABC Person", "Main Market, Avantika",
                 BitmapFactory.decodeResource(getResources(), R.drawable.dp),

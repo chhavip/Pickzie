@@ -8,6 +8,11 @@ import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.provider.ContactsContract;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -28,27 +33,21 @@ import com.cocosw.bottomsheet.BottomSheet;
 
 public class ProfilePage extends AppCompatActivity implements View.OnClickListener {
 
-    ImageView imageViewBackgroundDP, imageViewPlaces, imageViewPictures, imageViewReview; // imageViewPeople,
-    int selectedImage=1;
+    ImageView imageViewBackgroundDP;
     Toolbar toolbar;
     ProfilePagePicture picture;
     ProfilePagePlaces places;
     ProfilePageReview review;
     ImageView Home, Plus, Profile;
-
+    private SectionsPagerAdapter mSectionsPagerAdapter;
+    private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_page);
         imageViewBackgroundDP = (ImageView) findViewById(R.id.imageView_profilePage_backgroundDP);
-//        imageViewPeople = (ImageView) findViewById(R.id.imageView_profilePage_people);
-        imageViewPlaces = (ImageView) findViewById(R.id.imageView_profilePage_place);
-        imageViewPictures = (ImageView) findViewById(R.id.imageView_profilePage_pictures);
-        imageViewReview = (ImageView) findViewById(R.id.imageView_profilePage_review);
         findViewById(R.id.profilepage_profile).setOnClickListener(this);
-
-        imageViewPlaces.setBackgroundResource(R.color.colorAccentDark);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
@@ -62,6 +61,18 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
         Drawable d = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmapToolbar, 35, 35, true));
         getSupportActionBar().setLogo(d);
         //
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+
+        // Set up the ViewPager with the sections adapter.
+        mViewPager = (ViewPager) findViewById(R.id.viewPager_profile);
+        mViewPager.setAdapter(mSectionsPagerAdapter);
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.profile_tabs);
+        tabLayout.setupWithViewPager(mViewPager);
+        tabLayout.getTabAt(0).setIcon(R.drawable.place);
+        tabLayout.getTabAt(1).setIcon(R.drawable.picture);
+        tabLayout.getTabAt(2).setIcon(R.drawable.review);
+
 
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.dp);
         int startColor = Color.argb(170,0, 0, 0);
@@ -71,16 +82,6 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
         gradientOverImageDrawable.setGradientEnd(1);
         gradientOverImageDrawable.setGradientColors(startColor, endColor);
         imageViewBackgroundDP.setImageDrawable(gradientOverImageDrawable);
-
-        imageViewPictures.setOnClickListener(this);
-        imageViewPlaces.setOnClickListener(this);
-        imageViewReview.setOnClickListener(this);
-
-        places = new ProfilePagePlaces();
-        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-        android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.framelayout_profile_page, places);
-        fragmentTransaction.commit();
 
         Home = (ImageView) findViewById(R.id.profilepage_home);
         Plus = (ImageView) findViewById(R.id.profilepage_plus);
@@ -107,21 +108,6 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
 
 
     }
-
-    private void changeBGtoNormal(int selected){
-        switch (selected){
-            case 1:
-                imageViewPlaces.setBackgroundResource(R.color.colorAccent);
-                break;
-            case 2:
-                imageViewPictures.setBackgroundResource(R.color.colorAccent);
-                break;
-            case 3:
-                imageViewReview.setBackgroundResource(R.color.colorAccent);
-                break;
-        }
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         Log.v("MyApp", getClass().toString() + " onCreateOptionsMenu");
@@ -151,34 +137,6 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        if( v.equals(imageViewPlaces)){
-            changeBGtoNormal(selectedImage);
-            selectedImage=1;
-            places = new ProfilePagePlaces();
-            imageViewPlaces.setBackgroundResource(R.color.colorAccentDark);
-            android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-            android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.framelayout_profile_page, places);
-            fragmentTransaction.commit();
-        } else if ( v.equals(imageViewPictures)){
-            changeBGtoNormal(selectedImage);
-            selectedImage=2;
-            picture = new ProfilePagePicture();
-            imageViewPictures.setBackgroundResource(R.color.colorAccentDark);
-            android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-            android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.framelayout_profile_page, picture);
-            fragmentTransaction.commit();
-        } else if ( v.equals(imageViewReview)) {
-            changeBGtoNormal(selectedImage);
-            selectedImage=3;
-            review = new ProfilePageReview();
-            imageViewReview.setBackgroundResource(R.color.colorAccentDark);
-            android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-            android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.framelayout_profile_page, review);
-            fragmentTransaction.commit();
-        }
 
         Intent intent ;
         switch(v.getId()){
@@ -213,6 +171,44 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
                 intent = new Intent(ProfilePage.this, HomePage.class);
                 startActivity(intent);
         }
+    }//onClick()
 
+    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+
+        public SectionsPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            // getItem is called to instantiate the fragment for the given page.
+            // Return a PlaceholderFragment (defined as a static inner class below).
+            switch (position){
+                case 0: return new ProfilePagePlaces();
+                case 1: return new ProfilePagePicture();
+                case 2: return new ProfilePageReview();
+                default : return null;
+            }
+        }
+
+        @Override
+        public int getCount() {
+            // Show 3 total pages.
+            return 3;
+        }
+
+//        @Override
+//        public CharSequence getPageTitle(int position) {
+//            switch (position) {
+//                case 0:
+//                    return "Places";
+//                case 1:
+//                    return "Pictures";
+//                case 2:
+//                    return "Review";
+//            }
+//            return null;
+//        }
     }
+
 }
