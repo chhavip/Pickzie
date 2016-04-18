@@ -71,25 +71,6 @@ public class ProfilePageReview extends Fragment {
                         "Not to be taken seriously",
                 BitmapFactory.decodeResource(getResources(), R.drawable.dp)));
 
-        contentCardReview.addItem(new ContentCardReview.DummyItem("ABC Person", "Central Market, Punjabi Bagh",
-                "This is small Review. Just one or two lines max, not more than that. It is to check. These are dummy content. " +
-                        "Not to be taken seriously",
-                BitmapFactory.decodeResource(getResources(), R.drawable.dp)));
-
-        contentCardReview.addItem(new ContentCardReview.DummyItem("ABC Person", "Central Market, Punjabi Bagh",
-                "This is small Review. Just one or two lines max, not more than that. It is to check. These are dummy content. " +
-                        "Not to be taken seriously",
-                BitmapFactory.decodeResource(getResources(), R.drawable.dp)));
-
-        contentCardReview.addItem(new ContentCardReview.DummyItem("ABC Person", "Central Market, Punjabi Bagh",
-                "This is small Review. Just one or two lines max, not more than that. It is to check. These are dummy content. " +
-                        "Not to be taken seriously",
-                BitmapFactory.decodeResource(getResources(), R.drawable.dp)));
-
-        contentCardReview.addItem(new ContentCardReview.DummyItem("ABC Person", "Central Market, Punjabi Bagh",
-                "This is to check only.",
-                BitmapFactory.decodeResource(getResources(), R.drawable.dp)));
-
         rvAdapter = new RVAdapter( contentCardReview.ITEMS );
         recyclerView.setAdapter(rvAdapter);
 

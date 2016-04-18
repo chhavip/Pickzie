@@ -23,7 +23,12 @@ public class UserSettingsOptions extends Fragment implements View.OnClickListene
 
     UserBasicInfo userBasicInfo;
     UserBookings userBookings;
-
+    UserAboutUs userAboutUs;
+    UserContactUs userContactUs;
+    UserFavorites userFavorites;
+    UserLegal userLegal;
+    UserRateUsOnOurApp userRateUsOnOurApp;
+    UserSendFeedback userSendFeedback;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,9 +56,10 @@ public class UserSettingsOptions extends Fragment implements View.OnClickListene
         android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         switch (v.getId()){
             case R.id.settings_aboutus:
-//                fragmentTransaction.replace(R.id.framelayout_user_settings, userSettingsOptions);
-//                fragmentTransaction.addToBackStack(null);
-//                fragmentTransaction.commit();
+                userAboutUs = new UserAboutUs();
+                fragmentTransaction.replace(R.id.framelayout_user_settings, userAboutUs);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
                 break;
             case R.id.settings_appsettings:
 //                fragmentTransaction.replace(R.id.framelayout_user_settings, userSettingsOptions);
@@ -73,14 +79,16 @@ public class UserSettingsOptions extends Fragment implements View.OnClickListene
                 fragmentTransaction.commit();
                 break;
             case R.id.settings_fav:
-//                fragmentTransaction.replace(R.id.framelayout_user_settings, userSettingsOptions);
-//                fragmentTransaction.addToBackStack(null);
-//                fragmentTransaction.commit();
+                userFavorites = new UserFavorites();
+                fragmentTransaction.replace(R.id.framelayout_user_settings, userFavorites);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
                 break;
             case R.id.settings_legal:
-//                fragmentTransaction.replace(R.id.framelayout_user_settings, userSettingsOptions);
-//                fragmentTransaction.addToBackStack(null);
-//                fragmentTransaction.commit();
+                userLegal = new UserLegal();
+                fragmentTransaction.replace(R.id.framelayout_user_settings, userLegal);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
                 break;
             case R.id.settings_logout:
 //                fragmentTransaction.replace(R.id.framelayout_user_settings, userSettingsOptions);
@@ -88,9 +96,10 @@ public class UserSettingsOptions extends Fragment implements View.OnClickListene
 //                fragmentTransaction.commit();
                 break;
             case R.id.settings_rate:
-//                fragmentTransaction.replace(R.id.framelayout_user_settings, userSettingsOptions);
-//                fragmentTransaction.addToBackStack(null);
-//                fragmentTransaction.commit();
+                userRateUsOnOurApp = new UserRateUsOnOurApp();
+                fragmentTransaction.replace(R.id.framelayout_user_settings, userRateUsOnOurApp);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
                 break;
             case R.id.settings_refer:
 //                fragmentTransaction.replace(R.id.framelayout_user_settings, userSettingsOptions);
@@ -98,9 +107,10 @@ public class UserSettingsOptions extends Fragment implements View.OnClickListene
 //                fragmentTransaction.commit();
                 break;
             case R.id.settings_send_feedback:
-//                fragmentTransaction.replace(R.id.framelayout_user_settings, userSettingsOptions);
-//                fragmentTransaction.addToBackStack(null);
-//                fragmentTransaction.commit();
+                userSendFeedback = new UserSendFeedback();
+                fragmentTransaction.replace(R.id.framelayout_user_settings, userSendFeedback);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
                 break;
         }
     }
